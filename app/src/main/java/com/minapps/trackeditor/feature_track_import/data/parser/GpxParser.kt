@@ -144,10 +144,13 @@ class GpxParser @Inject constructor() : TrackParser {
 
         } catch (e: XmlPullParserException) {
             Log.e("GpxParser", "XML parsing error: ${e.message}", e)
+            throw e
         } catch (e: IOException) {
             Log.e("GpxParser", "IO error: ${e.message}", e)
+            throw e
         } catch (e: Exception) {
             Log.e("GpxParser", "Unexpected error: ${e.message}", e)
+            throw e
         } finally {
             try {
                 inputStream?.close()

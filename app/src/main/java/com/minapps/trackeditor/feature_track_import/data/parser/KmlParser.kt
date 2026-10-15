@@ -194,10 +194,13 @@ class KmlParser @Inject constructor() : TrackParser {
 
         } catch (e: XmlPullParserException) {
             Log.e("KmlParser", "XML parsing error: ${e.message}", e)
+            throw e
         } catch (e: IOException) {
             Log.e("KmlParser", "IO error: ${e.message}", e)
+            throw e
         } catch (e: Exception) {
             Log.e("KmlParser", "Unexpected error: ${e.message}", e)
+            throw e
         } finally {
             try {
                 inputStream?.close()
